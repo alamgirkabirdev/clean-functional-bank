@@ -19,3 +19,9 @@ function(){
    
    updateTotal('deposit-total',amount)
 });
+
+// handle withdraw
+document.getElementById('withdraw-button').addEventListener('click', function(){
+    const amount = getInputValue('withdraw-input');
+    updateTotal('withdraw-total', amount);
+})
