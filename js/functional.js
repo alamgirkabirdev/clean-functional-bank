@@ -5,6 +5,7 @@ const value = parseFloat(valueInText);
 inputField.value = '';
 return value;
 }
+
 function updateTotal(fieldId, amount){
     
     const totalTag = document.getElementById(fieldId);
@@ -12,12 +13,22 @@ function updateTotal(fieldId, amount){
     const previousTotal =parseFloat(previousTotalInText);
     const newTotal = previousTotal + amount;
     totalTag.innerText = newTotal;
+    return newTotal;
+}
+// update balance
+function updateBalance(amount){
+    const balanceTag = document.getElementById('balance-total');
+    const balanceInText = balanceTag.innerText;
+    const previousBalance = parseFloat(balanceInText);
+    const newBalance = previousBalance + amount;
+    balanceTag.innerText = newBalance;
 }
 document.getElementById('deposit-button').addEventListener('click',
 function(){
     const amount = getInputValue('deposit-amount');
    
-   updateTotal('deposit-total',amount)
+   updateTotal('deposit-total',amount);
+   updateBalance(amount);
 });
 
 // handle withdraw
